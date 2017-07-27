@@ -1,4 +1,4 @@
-package Client
+package SmapClient
 
 import (
 	"bufio"

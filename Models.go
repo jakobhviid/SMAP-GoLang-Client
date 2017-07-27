@@ -1,4 +1,4 @@
-package Client
+package SmapClient
 
 //SubscribtionMessage is a container for the JSON data comming from the archiver
 type SubscribtionMessage struct {
