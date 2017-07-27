@@ -1,4 +1,4 @@
-package Smap
+package smap
 
 import (
 	"bufio"
