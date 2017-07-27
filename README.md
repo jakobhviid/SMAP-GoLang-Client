@@ -6,7 +6,7 @@ The code is not fully implemted, and at the time of writing only supports subscr
 ## Usage
 
 Here is an exaple of a subscribtion:
-''' Go
+'''go
 Client.gooutput := make(chan smap.SubscribtionMessage, 1000)
 quit := make(chan bool, 1)
 
