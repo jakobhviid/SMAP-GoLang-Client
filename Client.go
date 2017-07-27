@@ -1,4 +1,4 @@
-package SMAPClient
+package Client
 
 import (
 	"bufio"
@@ -18,12 +18,12 @@ type Client struct {
 }
 
 //NewClient creates a new instance of Client
-//The url string must be in for format "http://volta.sdu.dk:8079"
+//The url string must be in for format "http://www.somedomain.com:8079"
 // usage example:
 // output := make(chan Client.SubscribtionMessage, 1000)
 // quit := make(chan bool, 1)
-// client := Client.NewClient("http://volta.sdu.dk:8079")
-// client.Subscribe(output, quit, "Metadata/SourceName='GTC'")
+// client := Client.NewClient("http://URL:8079")
+// client.Subscribe(output, quit, "Metadata/SourceName='SomeKey'")
 // go func() {
 // 	time.Sleep(time.Second * 10)
 // 	quit <- true
@@ -36,7 +36,7 @@ func NewClient(url string) Client {
 }
 
 //Subscribe starts a subscribtion (on republish) on the archiver and returns results in a channel
-//An example for the subscribe filter is as following: "Metadata/SourceName='GTC'"
+//An example for the subscribe filter is as following: "Metadata/SourceName='SomeKet'"
 //A true message in the quitChannel quits the thread.
 func (instance Client) Subscribe(outChannel chan SubscribtionMessage, quitChannel chan bool, subscribeFilter string) {
 
