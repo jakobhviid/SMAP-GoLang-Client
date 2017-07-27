@@ -1,6 +1,6 @@
 # A GO Client for SMAP
 
-This code was written to be a GO based client for SMAP [SMAP-Home](https://github.com/SoftwareDefinedBuildings/smap).
+This code was written to be a GO based client for [SMAP](https://github.com/SoftwareDefinedBuildings/smap).
 The code is not fully implemted, and at the time of writing only supports subscribtions.
 
 ## Usage
