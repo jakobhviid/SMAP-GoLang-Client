@@ -11,8 +11,8 @@ Here is an exaple of a subscribtion:
 output := make(chan smap.SubscribtionMessage, 1000)
 quit := make(chan bool, 1)
 
-client := smap.NewClient("http://volta.sdu.dk:8079")
-client.Subscribe(output, quit, "Metadata/SourceName='GTC'")
+client := smap.NewClient("http://www.someurl.com:8079")
+client.Subscribe(output, quit, "Metadata/SourceName='SomeKey'")
 
 go func() {
     time.Sleep(time.Second * 50)
