@@ -1,4 +1,4 @@
-package SmapSmapClient
+package Client
 
 import (
 	"bufio"
@@ -11,19 +11,19 @@ import (
 	"github.com/buger/jsonparser"
 )
 
-//SmapClient is a SmapClient class that facilitates communication with the archiver
+//Client is a Client class that facilitates communication with the archiver
 //Parseing implemented using: https://github.com/buger/jsonparser
-type SmapClient struct {
+type Client struct {
 	url string
 }
 
-//NewSmapClient creates a new instance of SmapClient
+//NewClient creates a new instance of Client
 //The url string must be in for format "http://www.somedomain.com:8079"
 // usage example:
-// output := make(chan SmapClient.SubscribtionMessage, 1000)
+// output := make(chan Client.SubscribtionMessage, 1000)
 // quit := make(chan bool, 1)
-// SmapClient := SmapClient.NewSmapClient("http://URL:8079")
-// SmapClient.Subscribe(output, quit, "Metadata/SourceName='SomeKey'")
+// client := Client.NewClient("http://URL:8079")
+// client.Subscribe(output, quit, "Metadata/SourceName='SomeKey'")
 // go func() {
 // 	time.Sleep(time.Second * 10)
 // 	quit <- true
@@ -31,14 +31,14 @@ type SmapClient struct {
 // for item := range output {
 // 	fmt.Println(item.Path)
 // }
-func NewSmapClient(url string) SmapClient {
-	return SmapClient{url: url}
+func NewClient(url string) Client {
+	return Client{url: url}
 }
 
 //Subscribe starts a subscribtion (on republish) on the archiver and returns results in a channel
 //An example for the subscribe filter is as following: "Metadata/SourceName='SomeKet'"
 //A true message in the quitChannel quits the thread.
-func (instance SmapClient) Subscribe(outChannel chan SubscribtionMessage, quitChannel chan bool, subscribeFilter string) {
+func (instance Client) Subscribe(outChannel chan SubscribtionMessage, quitChannel chan bool, subscribeFilter string) {
 
 	go func() {
 		postReader := bytes.NewReader([]byte(subscribeFilter))
@@ -48,7 +48,7 @@ func (instance SmapClient) Subscribe(outChannel chan SubscribtionMessage, quitCh
 			return
 		}
 
-		log.Println("SmapClient posted and connected to " + instance.url + "/republish/ and subscribing to " + subscribeFilter)
+		log.Println("Client posted and connected to " + instance.url + "/republish/ and subscribing to " + subscribeFilter)
 
 		rdr := bufio.NewReader(resp.Body)
 
