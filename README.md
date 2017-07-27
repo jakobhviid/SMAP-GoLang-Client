@@ -6,7 +6,8 @@ The code is not fully implemted, and at the time of writing only supports subscr
 ## Usage
 
 Here is an exaple of a subscribtion:
-'''go
+
+```go
 Client.gooutput := make(chan smap.SubscribtionMessage, 1000)
 quit := make(chan bool, 1)
 
@@ -21,4 +22,4 @@ go func() {
 for item := range output {
     fmt.Println(item.Path)
 }
-'''
+```
