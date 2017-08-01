@@ -5,7 +5,7 @@ The code is not fully implemted, and at the time of writing, and only supports s
 
 ## Usage
 
-Here is an exaple of a subscribtion:
+Here is an example of a subscribtion:
 
 ```go
 output := make(chan smap.SubscribtionMessage, 1000)
